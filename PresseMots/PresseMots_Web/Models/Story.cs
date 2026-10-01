@@ -23,11 +23,12 @@ namespace PresseMots.Models
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string Content { get; set; }
-
-        
         [StringLength(10000, MinimumLength = 25, ErrorMessage = "Le contenu doit contenir entre 25 et 10000 caractères.")]
-        public string Texte { get; set; } = string.Empty;
+        public string Content { get; set; }
+        public DateTime CreationTime { get; set; }
+        public DateTime? PublishTime { get; set; }
+        public DateTime? LastEditTime { get; set; }
+        public bool Draft { get; set; }
 
         public virtual List<StoryTag> StoryTags { get; set; } = new();
 

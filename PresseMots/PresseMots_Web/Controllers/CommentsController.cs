@@ -1,10 +1,11 @@
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PresseMots.Models;
 using PresseMots.Models.Data;
 using PresseMots.Utility;
+using PresseMots.ViewModels;
+using System.Linq;
 
 namespace PresseMots.Controllers
 {
@@ -38,12 +39,16 @@ namespace PresseMots.Controllers
 
             // À FAIRE : Utilisez un VM pour retourner les données de wordCount, storyTitle, shortStory, storyId et comments
 
-            ViewBag.WordCount = wordCount;
-            ViewBag.StoryTitle = title;
-            ViewBag.ShortStory = shortStory;
-            ViewBag.StoryId = storyId;
-            
-            return View(comments);
+            var vm = new CommentsIndexViewModel
+            {
+                WordCount = wordCount,
+                StoryTitle = title,
+                ShortStory = shortStory,
+                StoryId = storyId.Value,
+                Comments = comments
+            };
+
+            return View(vm);
         }
 
  

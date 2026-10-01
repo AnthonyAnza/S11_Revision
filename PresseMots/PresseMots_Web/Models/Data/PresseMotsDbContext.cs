@@ -24,8 +24,7 @@ namespace PresseMots.Models.Data
             #region Ne pas supprimer!
             modelBuilder.SetEntityRelationships();
             modelBuilder.GenerateData();
-            modelBuilder.Entity<StoryTag>()
-      .HasKey(st => new { st.StoryId, st.TagsId });
+           
 
             base.OnModelCreating(modelBuilder);
             #endregion

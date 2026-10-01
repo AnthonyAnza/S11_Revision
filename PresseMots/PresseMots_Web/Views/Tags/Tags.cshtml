@@ -1,0 +1,13 @@
+﻿@model PresseMots.Models.Story
+
+@foreach (var st in Model.StoryTags)
+{
+    <span class="badge bg-secondary me-1">
+        @st.Tag.Name
+        <a asp-controller="StoryTags"
+           asp-action="Delete"
+           asp-route-storyId="@st.StoryId"
+           asp-route-id="@st.Id"
+           class="text-white text-decoration-none ms-1">X</a>
+    </span>
+}
